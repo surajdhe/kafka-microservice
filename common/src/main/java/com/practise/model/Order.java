@@ -8,4 +8,7 @@ public class Order {
     private String product;
     private int quantity;
     private double price;
+    private String customerID;
+    private String customerEmail;
+    private String customerName;
 }

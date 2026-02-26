@@ -15,7 +15,12 @@ public class OrderService {
 
     private static final String topic = "orders";
 
-    public void sendOrder(Order order) {
+    public void sendOrder(Order order, String userId, String email, String name) {
+
+        order.setCustomerID(userId);
+        order.setCustomerEmail(email);
+        order.setCustomerName(name);
+
         kafkaTemplate.send(topic, order.getOrderId(), order);
         log.info("Order sent: {}", order.getOrderId());
     }
